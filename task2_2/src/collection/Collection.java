@@ -57,34 +57,9 @@ public class Collection {
         return acc / list.size();
     }
 
-    public static double parseFromFileBefore(String filename) throws NumberFormatException {
-        NumberFormat nfFr = NumberFormat.getInstance(Locale.FRANCE);
-        double numFr = 0;
-        BufferedReader buff = null;
-        try {
-            FileReader fr = new FileReader(filename);
-            buff = new BufferedReader(fr);
-            String number = buff.readLine();
-            numFr = nfFr.parse(number).doubleValue();
-        }  catch (ParseException e) {
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if(buff != null) {
-                try {
-                    buff.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return numFr;
-    }
-
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
-        students.add(new Student(12,"Ryshova","Karina",21));
+        students.add(new Student(12,"Ryshova","Karina",214));
         students.add(new Student(13,"Petrov", "Oleg",32));
         students.add(new Student(14, "Stasov", "Petr", 20));
         students.add(new Student(15,"Moskaleva","Katy",24));
@@ -105,9 +80,6 @@ public class Collection {
         String letter = let.next();
         System.out.println(letter);
         System.out.println(filter(students, letter));
-
-        double result = parseFromFileBefore("sdsd");
-
     }
 
 
